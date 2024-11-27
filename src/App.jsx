@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Eyes from "./components/Eyes";
+import Contact from "./components/Contact";
 
 function App() {
   const [rotate, setRotate] = useState(0);
@@ -18,8 +19,12 @@ function App() {
     });
   });
   return (
-    <div className="h-screen w-full flex justify-center items-center ">
-   <Eyes rotate={rotate}/>
+    <div className="px-6">
+      <div className="flex justify-center items-center h-screen ">
+        <Eyes rotate={rotate} />
+      </div>
+
+      <Contact />
     </div>
   );
 }
