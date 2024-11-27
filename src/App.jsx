@@ -19,10 +19,8 @@ function App() {
     });
   });
   return (
-    <div className="px-6">
-      <div className="flex justify-center items-center h-screen ">
+    <div className="p-6">
         <Eyes rotate={rotate} />
-      </div>
 
       <Contact />
     </div>
