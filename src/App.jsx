@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from "react";
 import Eyes from "./components/Eyes";
-import Contact from "./components/Contact";
-// import Additems from "./components/Additems";
-import Addlist from "./components/Addlist";
-
+import { slidesData } from "./slides";
+import Additems from "./components/Additems";
+import Slider from "./components/Slider";
+import CodeReviewFeedback from "./components/CodeReviewFeedback";
+import Contactform from "./components/Contactform";
+import Home from "./components/Home";
+import Home1 from "./components/Home1";
+import Sidenav from "./components/Sidenav";
+import { Routes, Route } from "react-router-dom";
+import Createpost from "./components/Createpost";
 function App() {
   const [rotate, setRotate] = useState(0);
   useEffect(() => {
@@ -17,15 +23,25 @@ function App() {
       let angleRadians = Math.atan2(deltaY, deltaX);
       let angleDegrees = angleRadians * (180 / Math.PI);
       setRotate(angleDegrees - 180);
-      // console.log(Math.atan2(0, 2));
     });
   });
+
   return (
-    <div className="p-6">
-      {/* <Eyes rotate={rotate} />
-      <Contact /> */}
-      {/* <Additems/> */}
-    <Addlist/>
+    <div className="bg-neutral-800">
+      <Eyes rotate={rotate} />
+
+      {/* HACKER RANK */}
+      <Additems/>
+      <Slider slidesData={slidesData}/>
+      <CodeReviewFeedback/>
+      <Contactform/>
+      <Home/>
+      <Sidenav />
+      
+      <Routes>
+        <Route path="/" element={<Home1 />} />
+        <Route path="/create" element={<Createpost />} />
+      </Routes>
     </div>
   );
 }
